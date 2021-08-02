@@ -3,6 +3,29 @@
 //============== Helper Functions ==============//
 
 /**
+ * Create setMessage function for session value set
+ */
+function setMessage($msg){
+    if(!empty($msg)){
+        $_SESSION['message'] = $msg; 
+    }else {
+        $msg = "";
+    }
+}
+
+
+/**
+ * Create displayMessage function for session value show
+ */
+function displayMessage(){
+    if(isset($_SESSION['message'])){
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+}
+
+
+/**
  * Create redirect function
  */
 function redirect($loaction){
@@ -184,6 +207,7 @@ function getProductINShopPage(){
 
 
 //=================== User Login Function ====================//
+
 function userLogin(){
     if(isset($_POST['submit'])){
 
@@ -194,8 +218,10 @@ function userLogin(){
         confirm($query);
 
         if(mysqli_num_rows($query) == 0){
+            setMessage("Your username and password are wrong!");
             redirect("login.php");
         }else {
+            setMessage("Welcome to Admin {$username}");
             redirect("admin");
         }
 

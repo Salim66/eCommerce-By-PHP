@@ -13,8 +13,12 @@
 
       <header>
             <h1 class="text-center">Login</h1>
+            <?php if(isset($_SESSION['message'])): ?>
+                <h5 class="text-center alert alert-danger" style="color: orangered;"><?php echo displayMessage(); ?><button class="close" data-dismiss="alert">&times;</button></h5>
+            <?php endif; ?> 
         <div class="col-sm-4 col-sm-offset-5">         
-            <form class="" action="" method="post" enctype="multipart/form-data">
+            <form class="" action="" method="POST">
+                <?php userLogin() ?>
                 <div class="form-group"><label for="">
                     username<input type="text" name="username" class="form-control" autocomplete="off"></label>
                 </div>
