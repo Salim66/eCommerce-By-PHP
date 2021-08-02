@@ -71,7 +71,7 @@ function getProducts(){
                         </h4>
                         <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                     
-                        <a class="btn btn-primary" target="_self" href="item.php?id={$row['product_id']}">View Tutorial</a>
+                        <a class="btn btn-primary" target="_self" href="item.php?id={$row['product_id']}">Add to cart</a>
                     </div>
                     
                 </div>
@@ -81,6 +81,29 @@ function getProducts(){
 
         echo $product;
 
+    }
+}
+
+
+
+//============== Category Functions ===============//
+
+/**
+ * Create get all category function 
+ */
+function getCategory(){
+    $query = query("SELECT * FROM categories");
+    confirm($query); 
+        
+    while($row = fetchArray($query)){
+
+        $categories_link = <<<DELIMETER
+
+            <a href='category.php?id={$row['cat_id']}' class='list-group-item'>{$row['cat_title']}</a>
+
+        DELIMETER;
+
+        echo $categories_link;
     }
 }
 
