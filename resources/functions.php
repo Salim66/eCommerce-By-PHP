@@ -146,9 +146,6 @@ function getProductINCatPage($category_id){
 
 
 
-
-
-
 //==================== Shop Page ====================//
 
 function getProductINShopPage(){
@@ -184,6 +181,26 @@ function getProductINShopPage(){
 
 
 
+
+
+//=================== User Login Function ====================//
+function userLogin(){
+    if(isset($_POST['submit'])){
+
+        $username = escapeString($_POST['username']);
+        $password = escapeString($_POST['password']);
+
+        $query = query("SELECT * FROM users WHERE username = '{$username}' AND password = '{$password}' ");
+        confirm($query);
+
+        if(mysqli_num_rows($query) == 0){
+            redirect("login.php");
+        }else {
+            redirect("admin");
+        }
+
+    }
+}
 
 
 
