@@ -36,7 +36,7 @@
 <div class="row">
 
     <div class="col-md-7">
-       <img class="img-responsive" src="http://placehold.it/700x600" alt="">
+       <img class="img-responsive singel__page-img" src="<?php echo $product['product_image']; ?>" alt="">
 
     </div>
 
