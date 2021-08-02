@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+//============== Helper Functions ==============//
 
 /**
  * Create redirect function
@@ -44,6 +46,21 @@ function escapeString($string){
  */
 function fetchArray($result){
     return mysqli_fetch_array($result);
+}
+
+
+//============== Product Functions ==============//
+
+/**
+ * Create gell product function
+ */
+function getProducts(){
+    $query = query("SELECT * FROM products");
+    confirm($query);
+
+    while($row = fetchArray($query)){
+        echo $row['product_price'];
+    }
 }
 
 
