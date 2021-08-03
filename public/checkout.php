@@ -1,4 +1,5 @@
 <?php require_once('../resources/config.php'); ?>
+<?php require_once('cart.php'); ?>
 <?php include(TEMPLATE_FRONT . DS . 'header.php'); ?>
 
 <?php
@@ -20,7 +21,9 @@
 <!-- /.row --> 
 
 <div class="row">
+    <?php if(!empty(displayMessage())): ?>
       <h4 class="text-center alert alert-danger"><?php displayMessage(); ?><button class="close" data-dismiss="alert">&times;</button></h4>
+    <?php endif; ?>
       <h1>Checkout</h1>
 
 <form action="">
@@ -35,15 +38,7 @@
           </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>apple</td>
-                <td>$23</td>
-                <td>3</td>
-                <td>2</td>
-                <td><a href="cart.php?remove=1">Remove</a></td>
-                <td><a href="cart.php?delete=1">Delete</a></td>
-              
-            </tr>
+            <?php cart(); ?>
         </tbody>
     </table>
 </form>
