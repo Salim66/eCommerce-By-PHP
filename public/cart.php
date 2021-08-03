@@ -45,30 +45,41 @@
     // product show in cart page
     function cart() {
 
-        $query = query("SELECT * FROM products");
-        confirm($query);
+        foreach ($_SESSION as $name => $value) {
+            
+            if(substr($name, 0, 8) == 'product_'){
 
-        while($row = fetchArray($query)){
+                $query = query("SELECT * FROM products");
+                confirm($query);
 
-            $product = <<<DELIMETER
+                while($row = fetchArray($query)){
 
-                    <tr>
-                        <td>{$row['product_title']}</td>
-                        <td>$23</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>
-                            <a class="btn btn-warning" href="cart.php?remove={$row['product_id']}"><span class="glyphicon glyphicon-minus"></span></a>
-                            <a class="btn btn-success" href="cart.php?add={$row['product_id']}"><span class="glyphicon glyphicon-plus"></span></a>
-                            <a class="btn btn-danger" href="cart.php?delete={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a>
-                        </td>
-                    
-                    </tr>
+                    $product = <<<DELIMETER
 
-            DELIMETER;
+                            <tr>
+                                <td>{$row['product_title']}</td>
+                                <td>$23</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>
+                                    <a class="btn btn-warning" href="cart.php?remove={$row['product_id']}"><span class="glyphicon glyphicon-minus"></span></a>
+                                    <a class="btn btn-success" href="cart.php?add={$row['product_id']}"><span class="glyphicon glyphicon-plus"></span></a>
+                                    <a class="btn btn-danger" href="cart.php?delete={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a>
+                                </td>
+                            
+                            </tr>
 
-            echo $product;
+                    DELIMETER;
+
+                    echo $product;
+                }
+
+            }
+
+
         }
+
+        
 
     }
 
