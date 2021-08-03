@@ -230,6 +230,35 @@ function userLogin(){
 
 
 
+//===================== Customer Contact Function ======================//
+// mail(to, subject, message, information);
+
+function sendMessage() {
+
+    if(isset($_POST['submit'])){ 
+
+        $to          =   "user@example.com";
+        $from_name   =   $_POST['name'];
+        $subject     =   $_POST['subject'];
+        $email       =   $_POST['email'];
+        $message     =   $_POST['message'];
+
+        $headers = "From: {$from_name} {$email}";
+
+        $result = mail($to, $subject, $message, $headers);
+
+
+        if(!$result) {
+            setMessage("Sorry we could not send your message");
+            redirect("contact.php");
+        } else {
+            setMessage("Your Message has been sent");
+            redirect("contact.php");
+        }
+
+    }
+}
+
 
 
 
