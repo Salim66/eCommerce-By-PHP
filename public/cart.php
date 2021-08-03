@@ -56,20 +56,22 @@
                     $id = substr($name, 8, $len);
                     // $length = explode('_', $name); 
                     // $id = substr($name, 8, $length[1]);
-                    
+
 
                     $query = query("SELECT * FROM products WHERE product_id = " . escapeString($id) . " " );
                     confirm($query);
     
                     while($row = fetchArray($query)){
-    
+                        
+                        $sub_total = $row['product_price'] * $value;
+
                         $product = <<<DELIMETER
     
                                 <tr>
                                     <td>{$row['product_title']}</td>
-                                    <td>$23</td>
-                                    <td>3</td>
-                                    <td>2</td>
+                                    <td>&#36;{$row['product_price']}</td>
+                                    <td>{$value}</td>
+                                    <td>&#36;{$sub_total}</td>
                                     <td>
                                         <a class="btn btn-warning" href="cart.php?remove={$row['product_id']}"><span class="glyphicon glyphicon-minus"></span></a>
                                         <a class="btn btn-success" href="cart.php?add={$row['product_id']}"><span class="glyphicon glyphicon-plus"></span></a>
