@@ -31,7 +31,7 @@
         if($_SESSION['product_'.$_GET['remove']] < 1){
             redirect("checkout.php");
         }else {
-            redirect("checkour.php");
+            redirect("checkout.php");
         }
     }
 
