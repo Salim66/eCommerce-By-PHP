@@ -3,8 +3,6 @@
 
 <?php
 
-    $_SESSION['product_1'] = 2;
-
 
 
 ?>
@@ -22,7 +20,7 @@
 <!-- /.row --> 
 
 <div class="row">
-
+      <h4 class="text-center alert alert-danger"><?php displayMessage(); ?><button class="close" data-dismiss="alert">&times;</button></h4>
       <h1>Checkout</h1>
 
 <form action="">

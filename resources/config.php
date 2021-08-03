@@ -3,7 +3,7 @@
     ob_start(); //The function will be called when the output buffer is flushed (sent) or cleaned (with ob_flush, ob_clean or similar function) or when the output buffer is flushed to the browser at the end of the request
 
     session_start();
-    session_destroy();
+    // session_destroy();
 
     // Create site path
     defined("DS") ? null : define("DS", DIRECTORY_SEPARATOR);

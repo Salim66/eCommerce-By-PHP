@@ -27,15 +27,10 @@
                 <!-- !slider section -->
 
                 <div class="row">
-                    <?php
-                    
-                        echo $_SESSION['product_1'];
-                    
-                    ?>
 
                     <?php
                     
-                    getProducts();
+                        getProducts();
                     
                     
                     ?>
