@@ -21,9 +21,11 @@
 <!-- /.row --> 
 
 <div class="row">
-    <?php if(!empty(displayMessage())): ?>
-      <h4 class="text-center alert alert-danger"><?php displayMessage(); ?><button class="close" data-dismiss="alert">&times;</button></h4>
-    <?php endif; ?>
+    <?php if(!empty(displayMessage())){
+
+        echo "<h4 class='text-center alert alert-danger'><?php displayMessage(); ?><button class='close' data-dismiss='alert'>&times;</button></h4>";
+
+     } ?>
       <h1>Checkout</h1>
 
 <form action="">
@@ -34,6 +36,7 @@
            <th>Price</th>
            <th>Quantity</th>
            <th>Sub-total</th>
+           <th>Action</th>
      
           </tr>
         </thead>
