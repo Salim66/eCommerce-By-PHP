@@ -66,7 +66,7 @@
 
 <tr class="order-total">
 <th>Order Total</th>
-<td><strong><span class="amount">$3444</span></strong> </td>
+<td><strong><span class="amount">&#36;<?php echo isset($_SESSION['total_amount']) ? $_SESSION['total_amount'] : '' ?></span></strong> </td>
 </tr>
 
 

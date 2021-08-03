@@ -45,6 +45,8 @@
     // product show in cart page
     function cart() {
 
+        $total = 0;
+
         foreach ($_SESSION as $name => $value) {
             
             if($value > 0){
@@ -84,6 +86,10 @@
     
                         echo $product;
                     }
+
+                    $total += $sub_total;
+
+                    $_SESSION['total_amount'] = $total;
     
                 }
 
