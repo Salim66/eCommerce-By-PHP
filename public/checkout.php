@@ -2,11 +2,6 @@
 <?php require_once('cart.php'); ?>
 <?php include(TEMPLATE_FRONT . DS . 'header.php'); ?>
 
-<?php
-
-    echo $_SESSION['product_1'];
-
-?>
 
       <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
