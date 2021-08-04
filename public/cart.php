@@ -125,5 +125,22 @@
     }
 
 
+    //=========== Paypal Show ============//
+    function showPaypal(){
+        if(isset($_SESSION['total_quantity'])){
+
+            $paypal = <<<DELIMETER
+            
+                <input type="image" name="upload"
+                src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                alt="PayPal - The safer, easier way to pay online">
+            
+            DELIMETER;
+
+            return $paypal;
+
+        }
+    }
+
 
 ?>
