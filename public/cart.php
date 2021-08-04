@@ -52,6 +52,11 @@
         $total = 0;
         $quantity = 0;
 
+        $item_name = 1;
+        $item_number = 1;
+        $item_amount = 1;
+        $item_quantity = 1;
+
         foreach ($_SESSION as $name => $value) {
             
             if($value > 0){
@@ -86,10 +91,20 @@
                                     </td>
                                 
                                 </tr>
+
+                                <input type="hidden" name="item_name_{$item_name}" value="hat">
+                                <input type="hidden" name="item_number_{$item_number}" value="123">
+                                <input type="hidden" name="amount_{$item_amount}" value="15.00">
+                                <input type="hidden" name="quantity_{$item_quantity}" value="15.00">
     
                         DELIMETER;
     
                         echo $product;
+
+                        $item_name++;
+                        $item_number++;
+                        $item_amount++;
+                        $item_quantity++;
                     }
 
                     $total += $sub_total;

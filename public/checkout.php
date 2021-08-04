@@ -28,7 +28,9 @@
      } ?>
       <h1>Checkout</h1>
 
-<form action="">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  <input type="hidden" name="cmd" value="_cart">
+  <input type="hidden" name="business" value="sb-5ehm87019775@business.example.com">
     <table class="table table-striped">
         <thead>
           <tr>
@@ -44,6 +46,9 @@
             <?php cart(); ?>
         </tbody>
     </table>
+  <input type="image" name="submit"
+    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+    alt="PayPal - The safer, easier way to pay online">
 </form>
 
 
