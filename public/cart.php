@@ -127,7 +127,7 @@
 
     //=========== Paypal Show ============//
     function showPaypal(){
-        if(isset($_SESSION['total_quantity'])){
+        if(isset($_SESSION['total_quantity']) && $_SESSION['total_quantity'] >= 1){
 
             $paypal = <<<DELIMETER
             

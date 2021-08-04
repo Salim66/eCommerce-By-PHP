@@ -67,7 +67,7 @@
    
     <form action="">
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="ADD TO CART">
+           <a href="cart.php?add=<?php echo $product['product_id']; ?>" class="btn btn-primary" >Add to cart</a>
         </div>
     </form>
 
