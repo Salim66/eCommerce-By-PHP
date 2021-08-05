@@ -148,51 +148,72 @@
     // order report
     function report() {
 
-        $total = 0;
-        $quantity = 0;
+        if(isset($_GET['tx'])){
 
-        foreach ($_SESSION as $name => $value) {
-            
-            if($value > 0){
-
-                if(substr($name, 0, 8) == 'product_'){
-
-                    $length = strlen($name);
-                    $len = $length - 8;
-                    $id = substr($name, 8, $len);
-
-
-                    $query = query("SELECT * FROM products WHERE product_id = " . escapeString($id) . " " );
-                    confirm($query);
+            // Get url value
+            $amount      = $_GET['amt'];
+            $currency    = $_GET['cc'];
+            $transaction = $_GET['tx'];
+            $status      = $_GET['st'];
     
-                    while($row = fetchArray($query)){
-                        
-                        $sub_total = $row['product_price'] * $value;
-                        $product_price = $row['product_price'];
+    
+            $send_order = query("INSERT INTO orders (order_amount, order_transaction, order_status, order_currency) VALUES ('{$amount}', '{$transaction}', '{$status}', '{$currency}')");
+            confirm($send_order);
 
-                        $insert_report = "INSERT INTO reports () VALUES ()";
-                        confirm($insert_report);
+            $order_last_id = orderLastID();
+    
+
+            $total = 0;
+            $quantity = 0;
+
+            foreach ($_SESSION as $name => $value) {
+                
+                if($value > 0){
+
+                    if(substr($name, 0, 8) == 'product_'){
+
+                        $length = strlen($name);
+                        $len = $length - 8;
+                        $id = substr($name, 8, $len);
 
 
-                        $insert_report = query("INSERT INTO reports (product_id, product_price, product_quantity) VALUES ('{$id}', '{$product_price}', '{$value}')");
+                        $query = query("SELECT * FROM products WHERE product_id = " . escapeString($id) . " " );
+                        confirm($query);
+        
+                        while($row = fetchArray($query)){
+                            
+                            $sub_total = $row['product_price'] * $value;
+                            $product_price = $row['product_price'];
 
-                        confirm($insert_report);
+                            $insert_report = "INSERT INTO reports () VALUES ()";
+                            confirm($insert_report);
 
+
+                            $insert_report = query("INSERT INTO reports (product_id, order_id, product_price, product_quantity) VALUES ('{$id}', '{$order_last_id}', '{$product_price}', '{$value}')");
+
+                            confirm($insert_report);
+
+                        }
+
+                        $total += $sub_total;
+                        $quantity += $value;
+
+                        $_SESSION['total_amount']   = $total;
+        
                     }
 
-                    $total += $sub_total;
-                    $quantity += $value;
-
-                    $_SESSION['total_amount']   = $total;
-    
                 }
+
 
             }
 
-
+    
+            session_destroy();
+    
+        }else {
+            redirect("index.php");
         }
-
-        
+      
 
     }
     

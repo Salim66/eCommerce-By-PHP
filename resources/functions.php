@@ -3,6 +3,14 @@
 //============== Helper Functions ==============//
 
 /**
+ * Order last id
+ */
+function orderLastID(){
+    global $connection;
+    return mysqli_insert_id($connection);
+}
+
+/**
  * Create setMessage function for session value set
  */
 function setMessage($msg){
