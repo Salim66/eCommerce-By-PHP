@@ -36,17 +36,24 @@
                     }
 
                     if(isset($_GET['orders'])){
-
                         include(TEMPLATE_BACK . DS . 'orders.php');
-
                     }
 
                     if(isset($_GET['products'])){
-
                         include(TEMPLATE_BACK . DS . 'products.php');
+                    }
 
+                    if(isset($_GET['product'])){
+                        include(TEMPLATE_BACK . DS . 'add_product.php');
                     }
                 
+                    if(isset($_GET['categories'])){
+                        include(TEMPLATE_BACK . DS . 'categories.php');
+                    }
+
+                    if(isset($_GET['users'])){
+                        include(TEMPLATE_BACK . DS . 'users.php');
+                    }
                 
                 ?>
 
