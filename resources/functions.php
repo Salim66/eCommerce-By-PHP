@@ -221,7 +221,8 @@ function userLogin(){
             setMessage("Your username and password are wrong!");
             redirect("login.php");
         }else {
-            setMessage("Welcome to Admin {$username}");
+            // setMessage("Welcome to Admin {$username}");
+            $_SESSION['username'] = $username;
             redirect("admin");
         }
 

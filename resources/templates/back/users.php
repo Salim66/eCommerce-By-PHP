@@ -7,7 +7,7 @@
         
     </h1>
         <p class="bg-success">
-       
+        <?php echo $message; ?>
     </p>
 
     <a href="add_user.php" class="btn btn-primary">Add User</a>
@@ -27,7 +27,7 @@
             </thead>
             <tbody>
 
-            
+            <?php foreach($users as $user): ?>
 
                 <tr>
 
@@ -50,7 +50,7 @@
                 </tr>
 
 
-           
+            <?php endforeach; ?>
 
 
                 
