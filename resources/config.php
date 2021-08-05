@@ -23,7 +23,7 @@
     
     // require all neccessary file for all file reqire just this one file execute all the code
     require_once("functions.php");
-    require_once("../resources/cart.php");
+    require_once("cart.php");
 
 
 
