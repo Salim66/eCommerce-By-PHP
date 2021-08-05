@@ -150,17 +150,14 @@
 
         if(isset($_GET['tx'])){
 
+            // Order table inset
             // Get url value
             $amount      = $_GET['amt'];
             $currency    = $_GET['cc'];
             $transaction = $_GET['tx'];
             $status      = $_GET['st'];
-    
-    
-            $send_order = query("INSERT INTO orders (order_amount, order_transaction, order_status, order_currency) VALUES ('{$amount}', '{$transaction}', '{$status}', '{$currency}')");
-            confirm($send_order);
-
-            $order_last_id = orderLastID();
+        
+            
     
 
             $total = 0;
@@ -176,7 +173,13 @@
                         $len = $length - 8;
                         $id = substr($name, 8, $len);
 
+                        // Order table inset
+                        $send_order = query("INSERT INTO orders (order_amount, order_transaction, order_status, order_currency) VALUES ('{$amount}', '{$transaction}', '{$status}', '{$currency}')");
+                        confirm($send_order);
 
+                        $order_last_id = orderLastID();
+
+                        // add to cart product search
                         $query = query("SELECT * FROM products WHERE product_id = " . escapeString($id) . " " );
                         confirm($query);
         
@@ -184,13 +187,10 @@
                             
                             $sub_total = $row['product_price'] * $value;
                             $product_price = $row['product_price'];
+                            $product_title = $row['product_title'];
 
-                            $insert_report = "INSERT INTO reports () VALUES ()";
-                            confirm($insert_report);
-
-
-                            $insert_report = query("INSERT INTO reports (product_id, order_id, product_price, product_quantity) VALUES ('{$id}', '{$order_last_id}', '{$product_price}', '{$value}')");
-
+                            // order report
+                            $insert_report = query("INSERT INTO reports (product_id, order_id, product_title, product_price, product_quantity) VALUES ('{$id}', '{$order_last_id}', '{$product_title}', '{$product_price}', '{$value}')");
                             confirm($insert_report);
 
                         }
