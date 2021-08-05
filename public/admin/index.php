@@ -23,9 +23,22 @@
 
                  <!-- FIRST ROW WITH PANELS -->
 
+                <?php
                 
+                
+                    // return project file directory to server path
+                    // echo $_SERVER['REQUEST_URI'];
 
-                 
+                    if($_SERVER['REQUEST_URI'] == '/php-projects/ecom/public/admin/' || $_SERVER['REQUEST_URI'] == '/php-projects/ecom/public/admin/index.php') {
+
+                        include(TEMPLATE_BACK . DS . 'admin_content.php');
+
+                    }
+                
+                
+                ?>
+
+
 
             </div>
             <!-- /.container-fluid -->
