@@ -168,11 +168,20 @@
                     while($row = fetchArray($query)){
                         
                         $sub_total = $row['product_price'] * $value;
+                        $product_price = $row['product_price'];
+
+                        $insert_report = "INSERT INTO reports () VALUES ()";
+                        confirm($insert_report);
+
+
+                        $insert_report = query("INSERT INTO reports (product_id, product_price, product_quantity) VALUES ('{$id}', '{$product_price}', '{$value}')");
+
+                        confirm($insert_report);
 
                     }
 
                     $total += $sub_total;
-                    echo $quantity += $value;
+                    $quantity += $value;
 
                     $_SESSION['total_amount']   = $total;
     
