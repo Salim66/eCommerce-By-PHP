@@ -279,4 +279,51 @@ function sendMessage() {
 /*********************************** BACK END FUNCTIONS ************************************/
 
 
+//====================== Display Orders =====================//
+function displayOrders(){
+    // Query for orders get from database
+    $query = query("SELECT * FROM orders");
+    confirm($query);
+
+    $i = 1;
+    while($row = fetchArray($query)){
+
+        $orders = <<<DELIMETER
+
+            <tr>
+                <td>{$i}</td>
+                <td>{$row['order_amount']}</td>
+                <td>{$row['order_transaction']}</td>
+                <td>{$row['order_currency']}</td>
+                <td>{$row['order_status']}</td>
+            </tr>
+
+        DELIMETER;
+
+        $i++;
+        echo $orders;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
