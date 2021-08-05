@@ -40,6 +40,12 @@
                         include(TEMPLATE_BACK . DS . 'orders.php');
 
                     }
+
+                    if(isset($_GET['products'])){
+
+                        include(TEMPLATE_BACK . DS . 'products.php');
+
+                    }
                 
                 
                 ?>
