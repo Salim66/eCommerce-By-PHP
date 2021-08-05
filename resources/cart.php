@@ -143,4 +143,54 @@
     }
 
 
+
+    //================== Order Report ===================//
+    // order report
+    function report() {
+
+        $total = 0;
+        $quantity = 0;
+
+        foreach ($_SESSION as $name => $value) {
+            
+            if($value > 0){
+
+                if(substr($name, 0, 8) == 'product_'){
+
+                    $length = strlen($name);
+                    $len = $length - 8;
+                    $id = substr($name, 8, $len);
+
+
+                    $query = query("SELECT * FROM products WHERE product_id = " . escapeString($id) . " " );
+                    confirm($query);
+    
+                    while($row = fetchArray($query)){
+                        
+                        $sub_total = $row['product_price'] * $value;
+
+                    }
+
+                    $total += $sub_total;
+                    echo $quantity += $value;
+
+                    $_SESSION['total_amount']   = $total;
+    
+                }
+
+            }
+
+
+        }
+
+        
+
+    }
+    
+
+
+
 ?>
+
+
+
