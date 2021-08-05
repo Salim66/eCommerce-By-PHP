@@ -9,6 +9,9 @@
                 All Orders
 
                 </h1>
+                <?php //if(displayMessage() != null){ ?>
+                    <h4 class="alert alert-danger"><?php displayMessage(); ?><button class="close" data-dismiss="alert">&times;</button></h4>
+                <?php // } ?>
             </div>
 
             <div class="row">
@@ -21,6 +24,7 @@
                         <th>Transaction</th>
                         <th>Currency</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
