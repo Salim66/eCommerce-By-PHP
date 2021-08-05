@@ -310,6 +310,36 @@ function displayOrders(){
 
 
 
+//=================== Display All Products =====================//
+function getProductsInAdmin(){
+
+    $query = query("SELECT * FROM products");
+    confirm($query);
+
+    while($row = fetchArray($query)){
+
+        $products = <<<DELIMETER
+
+            <tr>
+                <td>{$row['product_id']}</td>
+                <td>{$row['product_title']}<br>
+                <img src="{$row['product_image']}" alt="">
+                </td>
+                <td>{$row['product_category_id']}</td>
+                <td>{$row['product_price']}</td>
+                <td>{$row['product_quantity']}</td>
+            </tr>
+
+        DELIMETER;
+
+        echo $products;
+
+    }
+
+}
+
+
+
 
 
 
