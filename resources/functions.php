@@ -310,13 +310,15 @@ function displayOrders(){
 
 
 
-//=================== Display All Products =====================//
+//=================== Display All Products Admin =====================//
 function getProductsInAdmin(){
 
     $query = query("SELECT * FROM products");
     confirm($query);
 
     while($row = fetchArray($query)){
+
+        $category = showProductCategoryTitle($row['product_category_id']);
 
         $products = <<<DELIMETER
 
@@ -325,7 +327,7 @@ function getProductsInAdmin(){
                 <td>{$row['product_title']}<br>
                 <a href="index.php?edit_product&id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
                 </td>
-                <td>{$row['product_category_id']}</td>
+                <td>{$category}</td>
                 <td>{$row['product_price']}</td>
                 <td>{$row['product_quantity']}</td>
                 <td><a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
@@ -340,7 +342,22 @@ function getProductsInAdmin(){
 }
 
 
-//=================== Product Add ===================//
+//=============== Show Category name Products table page ===============//
+function showProductCategoryTitle($product_category_id){
+
+    $query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}' ");
+    confirm($query);
+
+    while($cateogry_row = fetchArray($query)){
+        return $cateogry_row['cat_title'];
+    }
+
+}
+
+
+
+
+//=================== Product Add Admin ===================//
 function addProduct(){
 
     if(isset($_POST['publish'])){
@@ -368,7 +385,7 @@ function addProduct(){
 
 }
 
-//============= show product under category =============//
+//============= show product page under category select HTML =============//
 function showCategoryAndProductPage(){
 
     $query = query("SELECT * FROM categories");
