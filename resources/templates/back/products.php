@@ -5,6 +5,7 @@
     All Products
 
     </h1>
+    <?php displayMessage(); ?>
     <table class="table table-hover">
 
 
