@@ -77,10 +77,16 @@
                         
                         $sub_total = $row['product_price'] * $value;
 
+                        $product_image = displayImage($row['product_image']);
+
                         $product = <<<DELIMETER
     
                                 <tr>
-                                    <td>{$row['product_title']}</td>
+                                    <td>
+                                        {$row['product_title']}
+                                        <br>
+                                        <img width="100" src="../resources/$product_image">
+                                    </td> 
                                     <td>&#36;{$row['product_price']}</td>
                                     <td>{$value}</td>
                                     <td>&#36;{$sub_total}</td>

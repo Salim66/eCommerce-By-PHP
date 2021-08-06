@@ -36,7 +36,7 @@
 <div class="row">
 
     <div class="col-md-7">
-       <img class="img-responsive singel__page-img" src="<?php echo $product['product_image']; ?>" alt="">
+       <img class="img-responsive singel__page-img" src="../resources/<?php echo displayImage($product['product_image']); ?>" alt="">
 
     </div>
 
