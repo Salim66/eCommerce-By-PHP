@@ -424,6 +424,42 @@ function showCategoryAndProductPage(){
 
 
 
+//=================== Product update Admin ===================//
+function updateProduct(){
+
+    if(isset($_POST['update'])){
+
+        $product_title             = escapeString($_POST['product_title']);
+        $product_category_id       = escapeString($_POST['product_category_id']);
+        $product_price             = escapeString($_POST['product_price']);
+        $product_description       = escapeString($_POST['product_description']);
+        $product_short_description = escapeString($_POST['product_short_description']);
+        $product_quantity          = escapeString($_POST['product_quantity']);
+        $product_image             = $_FILES['file']['name'];
+        $image_temp_location       = $_FILES['file']['tmp_name'];
+
+        move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $product_image);
+        echo UPLOAD_DIRECTORY;
+
+        $query  = "UPDATE products SET ";
+        $query .= "product_title                = '{$product_title}', ";
+        $query .= "product_category_id          = '{$product_category_id}', ";
+        $query .= "product_price                = '{$product_price}', ";
+        $query .= "product_description          = '{$product_description}', ";
+        $query .= "product_short_description    = '{$product_short_description}', ";
+        $query .= "product_quantity             = '{$product_quantity}', ";
+        $query .= "product_image                = '{$product_image}', ";
+    
+        confirm($query);
+        // setMessage("New product was added ): ");
+        setMessage("<h4 class='alert alert-success'>Product added successfully ):<button class='close' data-dismiss='alert'>&times;</button></h4>");
+        redirect('index.php?products');
+
+    }
+
+}
+
+
 
 
 
