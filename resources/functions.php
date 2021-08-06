@@ -453,7 +453,7 @@ function updateProduct(){
     
         confirm($query);
         // setMessage("New product was added ): ");
-        setMessage("<h4 class='alert alert-success'>Product added successfully ):<button class='close' data-dismiss='alert'>&times;</button></h4>");
+        setMessage("<h4 class='alert alert-success'>Product updated successfully ):<button class='close' data-dismiss='alert'>&times;</button></h4>");
         redirect('index.php?products');
 
     }
