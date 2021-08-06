@@ -354,6 +354,8 @@ function addProduct(){
         $product_image             = $_FILES['file']['name'];
         $product_tmp_location      = $_FILES['file']['tmp_name'];
 
+        move_uploaded_file($product_tmp_location, UPLOAD_DIRECTORY . DS . $product_image);
+
     }
 
 }
