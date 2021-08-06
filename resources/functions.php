@@ -442,13 +442,14 @@ function updateProduct(){
         echo UPLOAD_DIRECTORY;
 
         $query  = "UPDATE products SET ";
-        $query .= "product_title                = '{$product_title}', ";
-        $query .= "product_category_id          = '{$product_category_id}', ";
-        $query .= "product_price                = '{$product_price}', ";
-        $query .= "product_description          = '{$product_description}', ";
-        $query .= "product_short_description    = '{$product_short_description}', ";
-        $query .= "product_quantity             = '{$product_quantity}', ";
-        $query .= "product_image                = '{$product_image}', ";
+        $query .= "product_title                = '{$product_title}'             , ";
+        $query .= "product_category_id          = '{$product_category_id}'       , ";
+        $query .= "product_price                = '{$product_price}'             , ";
+        $query .= "product_description          = '{$product_description}'       , ";
+        $query .= "product_short_description    = '{$product_short_description}' , ";
+        $query .= "product_quantity             = '{$product_quantity}'          , ";
+        $query .= "product_image                = '{$product_image}'               ";
+        $query .= "WHERE product_id = " . escapeString($_GET['id']);
     
         confirm($query);
         // setMessage("New product was added ): ");
