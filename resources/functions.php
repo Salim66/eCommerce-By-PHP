@@ -438,6 +438,16 @@ function updateProduct(){
         $product_image             = $_FILES['file']['name'];
         $image_temp_location       = $_FILES['file']['tmp_name'];
 
+        // check image file is empty
+        if(empty($product_image)){
+            $query = query("SELECT product_image FROM products WHERE product_id = " . escapeString($_GET['id']) . " ");
+            confirm($query);
+
+            while($pic = fetchArray($query)){
+                $product_image = $pic['product_image'];
+            }
+        }
+
         move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $product_image);
         echo UPLOAD_DIRECTORY;
 
@@ -450,8 +460,10 @@ function updateProduct(){
         $query .= "product_quantity             = '{$product_quantity}'          , ";
         $query .= "product_image                = '{$product_image}'               ";
         $query .= "WHERE product_id = " . escapeString($_GET['id']);
-    
-        confirm($query);
+
+        
+        $update_query = query($query);
+        confirm($update_query);
         // setMessage("New product was added ): ");
         setMessage("<h4 class='alert alert-success'>Product updated successfully ):<button class='close' data-dismiss='alert'>&times;</button></h4>");
         redirect('index.php?products');
