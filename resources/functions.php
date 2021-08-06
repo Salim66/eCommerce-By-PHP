@@ -361,7 +361,7 @@ function addProduct(){
         $last_id = orderLastID();
         confirm($query);
         setMessage("New product with {$last_id} was added ):");
-        redirect('../../../public/admin/index.php?product');
+        redirect('index.php?product');
 
     }
 
