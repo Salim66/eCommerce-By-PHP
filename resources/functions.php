@@ -2,6 +2,8 @@
 
 //============== Helper Functions ==============//
 
+$upload_directory = 'uploads';
+
 /**
  * Order last id
  */
@@ -98,11 +100,13 @@ function getProducts(){
 
     while($row = fetchArray($query)){
         
+        $product_image = displayImage($row['product_image']);
+
         $product = <<<DELIMITER
 
             <div class="col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
-                    <a href="item.php?id={$row['product_id']}"><img src="http://placehold.it/320x150" alt=""></a>
+                    <a href="item.php?id={$row['product_id']}"><img style="width: 320px; height: 150px;" src="../resources/$product_image" alt=""></a>
                     <div class="caption">
                         <h4 class="pull-right">&#36;{$row['product_price']}</h4>
                         <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
@@ -311,6 +315,16 @@ function displayOrders(){
 
 
 //=================== Display All Products Admin =====================//
+
+//=========== upload Imaage directory ==============//
+function displayImage($picture){
+    global $upload_directory;
+
+    return $upload_directory . DS . $picture;
+}
+
+
+
 function getProductsInAdmin(){
 
     $query = query("SELECT * FROM products");
@@ -320,12 +334,14 @@ function getProductsInAdmin(){
 
         $category = showProductCategoryTitle($row['product_category_id']);
 
+        $product_image = displayImage($row['product_image']);
+
         $products = <<<DELIMETER
 
             <tr>
                 <td>{$row['product_id']}</td>
                 <td>{$row['product_title']}<br>
-                <a href="index.php?edit_product&id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
+                <a href="index.php?edit_product&id={$row['product_id']}"><img width="100" src="../../resources/$product_image" alt=""></a>
                 </td>
                 <td>{$category}</td>
                 <td>{$row['product_price']}</td>
