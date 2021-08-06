@@ -1,4 +1,4 @@
-
+<?php addProduct(); ?>
 <div class="col-md-12">
 
 <div class="row">
@@ -7,38 +7,7 @@
 </h1>
 </div>
   
-<?php
 
-
-    if(isset($_POST['publish'])){
-
-        $product_title             = escapeString($_POST['product_title']);
-        $product_category_id       = escapeString($_POST['product_category_id']);
-        $product_price             = escapeString($_POST['product_price']);
-        $product_description       = escapeString($_POST['product_description']);
-        $product_short_description = escapeString($_POST['product_short_description']);
-        $product_quantity          = escapeString($_POST['product_quantity']);
-        $product_image             = $_FILES['file']['name'];
-        $image_temp_location       = $_FILES['file']['tmp_name'];
-
-        $target_path = UPLOAD_DIRECTORY . DS . $product_image;
-
-        move_uploaded_file($image_temp_location, $target_path);
-
-        $query = query("INSERT INTO products (product_title, product_category_id, product_price, product_description, product_short_description, product_quantity, product_image) VALUES ('{$product_title}', '{$product_category_id}', '{$product_price}', '{$product_description }', '{$product_short_description}', '{$product_quantity}', '{$product_image}')");
-    
-        confirm($query);
-        // setMessage("New product was added ): ");
-        setMessage("<h4 class='alert alert-success'>Product added successfully ):<button class='close' data-dismiss='alert'>&times;</button></h4>");
-        redirect('index.php?products');
-
-    }
-
-
-
-
-
-?>
 
 
 <form action="" method="post" enctype="multipart/form-data">
@@ -99,9 +68,8 @@
          <label for="product-title">Product Category</label>
 
         <select name="product_category_id" id="" class="form-control">
-            <option value="">Select Category</option>
-
             
+          <?php showCategoryAndProductPage(); ?>
            
         </select>
 
