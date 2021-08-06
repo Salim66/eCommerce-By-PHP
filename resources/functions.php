@@ -345,7 +345,15 @@ function addProduct(){
 
     if(isset($_POST['publish'])){
 
-       echo "it Wordk";
+        $product_title             = $_POST['product_title'];
+        $product_category_id       = $_POST['product_category_id'];
+        $product_price             = $_POST['product_price'];
+        $product_description       = $_POST['product_description'];
+        $product_short_description = $_POST['product_short_description'];
+        $product_quantity          = $_POST['product_quantity'];
+        $product_image             = $_FILES['file']['name'];
+        $product_tmp_location      = $_FILES['file']['tmp_name'];
+
     }
 
 }
