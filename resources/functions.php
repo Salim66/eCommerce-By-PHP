@@ -340,6 +340,17 @@ function getProductsInAdmin(){
 }
 
 
+//=================== Product Add ===================//
+function addProduct(){
+
+    if(isset($_POST['publish'])){
+
+       echo "it Wordk";
+    }
+
+}
+
+
 
 
 
