@@ -518,7 +518,7 @@ function addCategory(){
 }
 
 
-//================ Get All Users =================//
+//================ Get All Users Admin =================//
 function getUsers(){
 
     $query = query("SELECT * FROM users");
@@ -546,6 +546,24 @@ function getUsers(){
 }
 
 
+
+//================ Add user Admin ================//
+function addUser(){
+
+    if(isset($_POST['add_user'])){
+
+        $username = escapeString($_POST['username']);
+        $email    = escapeString($_POST['email']);
+        $password = escapeString($_POST['password']);
+
+        $query    = query("INSERT INTO users(username, email, password) VALUES('{$username}', '{$email}', '{$password}')");
+        query($query);
+        setMessage("<h5 class='shadow-lg' style='background-color: yellowgreen; padding: 10px; border-left: 5px solid green; color: white;'>User added successfully ): </h5>");
+        redirect("index.php?user");
+
+    }
+
+}
 
 
 

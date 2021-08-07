@@ -9,7 +9,7 @@
        <?php displayMessage(); ?>
     </p>
 
-    <a href="add_user.php" class="btn btn-primary">Add User</a>
+    <a href="index.php?user" class="btn btn-primary">Add User</a>
 
 
     <div class="col-md-12">
