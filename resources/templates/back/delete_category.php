@@ -6,7 +6,7 @@
 
         $query = query("DELETE FROM categories WHERE cat_id = " . escapeString($_GET['id']) . " ");
         confirm($query);
-        setMessage("Category deleted successfully ): ");
+        setMessage("<h5 class='shadow-lg' style='background-color: yellowgreen; padding: 10px; border-left: 5px solid green; color: white;'>Category delete successfully ): </h5>");
         redirect("../../../public/admin/index.php?categories");
 
     }else {

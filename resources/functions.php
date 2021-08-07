@@ -511,8 +511,36 @@ function addCategory(){
         }else {
             $query = query("INSERT INTO categories(cat_title) VALUES('{$cat_title}') ");
             confirm($query);
-            setMessage("Category added successfully ): ");
+            setMessage("<h5 class='shadow-lg' style='background-color: yellowgreen; padding: 10px; border-left: 5px solid green; color: white;'>Category added successfully ): </h5>");
         }
+    }
+
+}
+
+
+//================ Get All Users =================//
+function getUsers(){
+
+    $query = query("SELECT * FROM users");
+    confirm($query);
+
+    while($row = fetchArray($query)){
+
+        $users = <<<DELIMETER
+
+            <tr>
+                <td>{$row['user_id']}</td>
+                <td>{$row['username']}</td>
+                <td>{$row['email']}</td>                 
+                <td>
+                    <a class="btn btn-danger" href="../../resources/templates/back/delete_user.php?id={$row['user_id']}"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+
+        DELIMETER;
+
+        echo $users;
+
     }
 
 }

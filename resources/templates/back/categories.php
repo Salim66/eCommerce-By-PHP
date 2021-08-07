@@ -7,7 +7,7 @@
 
 
 <div class="col-md-4">
-        <h5 class="shadow-lg" style="background-color: yellowgreen; padding: 10px; border-left: 5px solid green; color: white;"><?php displayMessage(); ?></h5>
+    <?php displayMessage(); ?>
     <form action="" method="post">
     
         <div class="form-group">
