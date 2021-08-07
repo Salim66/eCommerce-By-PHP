@@ -1,7 +1,8 @@
-
+<?php addCategory(); ?>
 <h1 class="page-header">
   Product Categories
 
+  <?php displayMessage(); ?>
 </h1>
 
 
@@ -11,12 +12,12 @@
     
         <div class="form-group">
             <label for="category-title">Title</label>
-            <input type="text" class="form-control">
+            <input type="text" name="cat_title" class="form-control">
         </div>
 
         <div class="form-group">
             
-            <input type="submit" class="btn btn-primary" value="Add Category">
+            <input type="submit" name="add_category" class="btn btn-primary" value="Add Category">
         </div>      
 
 

@@ -497,6 +497,19 @@ function showCategoryInAdmin(){
 }
 
 
+//================== Add Category ====================//
+function addCategory(){
+    
+    if(isset($_POST['add_category'])){
+        $cat_title = escapeString($_POST['cat_title']);
+
+        $query = query("INSERT INTO categories(cat_title) VALUES('{$cat_title}') ");
+        confirm($query);
+        redirect('index.php?categories');
+    }
+
+}
+
 
 
 
