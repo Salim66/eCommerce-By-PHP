@@ -27,14 +27,14 @@
 
      <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" name="username" class="form-control" >
+      <input type="text" name="username" class="form-control" autocomplete="off" >
          
      </div>
 
 
       <div class="form-group">
           <label for="email">Email</label>
-      <input type="text" name="email" class="form-control"   >
+      <input type="text" name="email" class="form-control" autocomplete="off"  >
          
      </div>
 
@@ -54,7 +54,7 @@
 
       <div class="form-group">
           <label for="password">Password</label>
-      <input type="password" name="password" class="form-control"  >
+      <input type="password" name="password" class="form-control" autocomplete="off" >
          
      </div>
 

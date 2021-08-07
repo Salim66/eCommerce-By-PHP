@@ -390,7 +390,6 @@ function addProduct(){
         $image_temp_location       = $_FILES['file']['tmp_name'];
 
         move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $product_image);
-        echo UPLOAD_DIRECTORY;
 
         $query = query("INSERT INTO products (product_title, product_category_id, product_price, product_description, product_short_description, product_quantity, product_image) VALUES ('{$product_title}', '{$product_category_id}', '{$product_price}', '{$product_description }', '{$product_short_description}', '{$product_quantity}', '{$product_image}')");
     
@@ -449,7 +448,6 @@ function updateProduct(){
         }
 
         move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $product_image);
-        echo UPLOAD_DIRECTORY;
 
         $query  = "UPDATE products SET ";
         $query .= "product_title                = '{$product_title}'             , ";
@@ -552,14 +550,18 @@ function addUser(){
 
     if(isset($_POST['add_user'])){
 
-        $username = escapeString($_POST['username']);
-        $email    = escapeString($_POST['email']);
-        $password = escapeString($_POST['password']);
+        $username   = escapeString($_POST['username']);
+        $email      = escapeString($_POST['email']);
+        $password   = escapeString($_POST['password']);
+        $user_photo = $_FILES['file']['name'];
+        $user_tmp   = $_FILES['file']['tmp_name'];
 
-        $query    = query("INSERT INTO users(username, email, password) VALUES('{$username}', '{$email}', '{$password}')");
+        move_uploaded_file($user_tmp, UPLOAD_DIRECTORY . DS . $user_photo);
+
+        $query    = query("INSERT INTO users(username, email, password, photo) VALUES('{$username}', '{$email}', '{$password}', '{$user_photo}')");
         query($query);
         setMessage("<h5 class='shadow-lg' style='background-color: yellowgreen; padding: 10px; border-left: 5px solid green; color: white;'>User added successfully ): </h5>");
-        redirect("index.php?user");
+        redirect("index.php?users");
 
     }
 
