@@ -98,7 +98,8 @@
          <label for="product-title">Product Category</label>
 
         <select name="product_category_id" id="" class="form-control">
-            
+
+        <option value="<?php $product_category_id; ?>"><?php echo showProductCategoryTitle($product_category_id); ?></option>
           <?php showCategoryAndProductPage(); ?>
            
         </select>
@@ -132,7 +133,7 @@
     <div class="form-group">
         <label for="product-title">Product Image</label>
         <input type="file" name="file">
-        <img width="200" style="margin-top: 4px;" src="../../resources/<?php echo $p_image; ?>" alt="">
+        <img width="200" style="margin-top: 25px;" src="../../resources/<?php echo $p_image; ?>" alt="">
     </div>
 
 
