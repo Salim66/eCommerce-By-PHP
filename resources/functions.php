@@ -473,6 +473,30 @@ function updateProduct(){
 }
 
 
+//==================== Show Category In Admin =====================//
+function showCategoryInAdmin(){
+
+    $query = query("SELECT * FROM categories");
+    confirm($query);
+
+    while($row = fetchArray($query)){
+
+        $categories = <<<DELIMETER
+
+            <tr>
+                <td>{$row['cat_id']}</td>
+                <td>{$row['cat_title']}</td>
+            </tr>
+
+        DELIMETER;
+
+        echo $categories;
+
+    }
+
+}
+
+
 
 
 

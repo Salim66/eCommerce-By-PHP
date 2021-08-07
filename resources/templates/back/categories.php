@@ -39,10 +39,9 @@
 
 
     <tbody>
-        <tr>
-            <td>20</td>
-            <td>Example Title</td>
-        </tr>
+        
+        <?php showCategoryInAdmin(); ?>
+
     </tbody>
 
         </table>
