@@ -486,6 +486,9 @@ function showCategoryInAdmin(){
             <tr>
                 <td>{$row['cat_id']}</td>
                 <td>{$row['cat_title']}</td>
+                <td>
+                    <a class="btn btn-danger" href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
             </tr>
 
         DELIMETER;
@@ -503,9 +506,14 @@ function addCategory(){
     if(isset($_POST['add_category'])){
         $cat_title = escapeString($_POST['cat_title']);
 
-        $query = query("INSERT INTO categories(cat_title) VALUES('{$cat_title}') ");
-        confirm($query);
-        redirect('index.php?categories');
+        if(empty($cat_title) || $cat_title == " "){
+            echo "Category title is required";
+        }else {
+            $query = query("INSERT INTO categories(cat_title) VALUES('{$cat_title}') ");
+            confirm($query);
+            setMessage("Category added successfully ): ");
+            redirect('index.php?categories');
+        }
     }
 
 }

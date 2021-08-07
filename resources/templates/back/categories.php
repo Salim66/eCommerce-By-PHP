@@ -2,12 +2,12 @@
 <h1 class="page-header">
   Product Categories
 
-  <?php displayMessage(); ?>
+  
 </h1>
 
 
 <div class="col-md-4">
-    
+    <h5 class="shadow" style="background-color: white; border-left-color: green; border-left-width: 20px;"><?php displayMessage(); ?></h5>
     <form action="" method="post">
     
         <div class="form-group">
