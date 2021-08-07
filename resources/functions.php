@@ -512,7 +512,6 @@ function addCategory(){
             $query = query("INSERT INTO categories(cat_title) VALUES('{$cat_title}') ");
             confirm($query);
             setMessage("Category added successfully ): ");
-            redirect('index.php?categories');
         }
     }
 
