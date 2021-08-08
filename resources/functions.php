@@ -706,9 +706,27 @@ function getSlides(){
 
 
 
-function getSlidesThumnails(){
+function getSlidesThumnailsInAdmin(){
 
+    $query = query("SELECT * FROM slides ORDER BY slide_id ASC ");
+    confirm($query);
 
+    while($row = fetchArray($query)){
+
+        $slide_image = displayImage($row['slide_image']);
+
+        $slide_image_thumb = <<<DELIMETER
+
+            <div class="col-xs-6 col-md-4">
+               <a href=""><img class="img-responsive" style="width: 200px; height: 100px;" src="../../resources/{$slide_image}" alt="Current Slide"></a>
+            </div>
+           
+
+        DELIMETER;
+
+        echo $slide_image_thumb;
+
+    }
 
 }
 
