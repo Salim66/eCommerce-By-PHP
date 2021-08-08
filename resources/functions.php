@@ -95,7 +95,7 @@ function fetchArray($result){
  * Create get product function
  */
 function getProducts(){
-    $query = query("SELECT * FROM products");
+    $query = query("SELECT * FROM products WHERE product_quantity >= 1 ");
     confirm($query);
 
     while($row = fetchArray($query)){
