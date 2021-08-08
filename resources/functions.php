@@ -623,6 +623,9 @@ function addSlides(){
 
             move_uploaded_file($slide_image_loc, UPLOAD_DIRECTORY . DS . $slide_image);
 
+            $query = query("INSERT INTO slides(slide_title, slide_image) VALUES('{$slide_title}', '{$slide_image}')");
+            confirm($query);
+            setMessage("<h5 class='shadow-lg' style='background-color: yellowgreen; padding: 10px; border-left: 5px solid green; color: white;'>Slide added successfully ): </h5>");
 
         }
 

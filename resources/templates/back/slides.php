@@ -1,9 +1,8 @@
-
-
+<?php addSlides(); ?>
   <div class="row">
 
     <h3 class="bg-success"></h3>
-
+    <?php displayMessage(); ?>
  <div class="col-xs-3">
 
     <form action="" method="post" enctype="multipart/form-data">
@@ -28,10 +27,7 @@
  </div>
 
  <div class="col-xs-8">
-   
-
-
-
+    <img src="http://placehold.it/800x300" alt="">
  </div>
 
 </div><!-- ROW-->
