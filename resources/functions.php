@@ -632,7 +632,22 @@ function activeSlides(){
 
 function getSlides(){
 
+    $query = query("SELECT * FROM slides");
+    confirm($query);
 
+    while($row = fetchArray($query)){
+
+        $slides = <<<DELIMETER
+
+            <div class="item">
+                <img class="slide-image" src="http://placehold.it/800x300?text=HELLO" alt="">
+            </div>
+
+        DELIMETER;
+
+        echo $slides;
+
+    }
 
 }
 
@@ -640,7 +655,7 @@ function getSlides(){
 
 function getSlidesThumnails(){
 
-    
+
 
 }
 
