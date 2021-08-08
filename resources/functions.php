@@ -305,7 +305,7 @@ function displayOrders(){
                 <td>{$row['order_transaction']}</td>
                 <td>{$row['order_currency']}</td>
                 <td>{$row['order_status']}</td>
-                <td><a class="btn btn-danger" href="../../resources/templates/back/delete_order.php?id={$row['order_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+                <td><a class="btn btn-danger" href="index.php?delete_order_id={$row['order_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
             </tr>
 
         DELIMETER;
@@ -351,7 +351,7 @@ function getProductsInAdmin(){
                 <td>{$category}</td>
                 <td>{$row['product_price']}</td>
                 <td>{$row['product_quantity']}</td>
-                <td><a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+                <td><a class="btn btn-danger" href="index.php?delete_product_id={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
             </tr>
 
         DELIMETER;
@@ -488,7 +488,7 @@ function showCategoryInAdmin(){
                 <td>{$row['cat_id']}</td>
                 <td>{$row['cat_title']}</td>
                 <td>
-                    <a class="btn btn-danger" href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a class="btn btn-danger" href="index.php?delete_category_id={$row['cat_id']}"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>
 
@@ -534,7 +534,7 @@ function getUsers(){
                 <td>{$row['username']}</td>
                 <td>{$row['email']}</td>                 
                 <td>
-                    <a class="btn btn-danger" href="../../resources/templates/back/delete_user.php?id={$row['user_id']}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a class="btn btn-danger" href="index.php?delete_user_id={$row['user_id']}"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>
 
@@ -571,7 +571,7 @@ function addUser(){
 }
 
 
-//=============== Reports Show =================//
+//=============== Reports Show Admin =================//
 function getReports(){
 
     $query = query("SELECT * FROM reports");
@@ -589,7 +589,7 @@ function getReports(){
                 <td>{$row['product_price']}</td>
                 <td>{$row['product_quantity']}</td>
                 <td>
-                    <a class="btn btn-danger" href="../../resources/templates/back/delete_report.php?id={$row['report_id']}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a class="btn btn-danger" href="index.php?delete_report_id={$row['report_id']}"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>
 
