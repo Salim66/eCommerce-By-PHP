@@ -610,7 +610,23 @@ function getReports(){
 
 function addSlides(){
 
+    if(isset($_POST['add_slide'])){
 
+        $slide_title     = escapeString($_POST['slide_title']);
+        $slide_image     = $_FILES['file']['name'];
+        $slide_image_loc = $_FILES['file']['tmp_name'];
+
+        if(empty($slide_title) || empty($slide_image)){
+            echo '<p class="bg-danger p-3">All field are required!</p>';
+        }else {
+
+
+            move_uploaded_file($slide_image_loc, UPLOAD_DIRECTORY . DS . $slide_image);
+
+
+        }
+
+    }
 
 }
 

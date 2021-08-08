@@ -16,11 +16,11 @@
 
         <div class="form-group">
           <label for="title">Slide Title</label>
-          <input type="text" name="banner_title" class="form-control">
+          <input type="text" name="slide_title" class="form-control">
         </div>
 
         <div class="form-group">
-          <input type="submit" name="add_banner">
+          <input type="submit" name="add_slide">
         </div>
 
     </form>
