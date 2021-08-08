@@ -624,7 +624,24 @@ function getCurrentSlides(){
 
 function activeSlides(){
 
+    $query = query("SELECT * FROM slides ORDER BY slide_id DESC LIMIT 1");
+    confirm($query);
 
+    while($row = fetchArray($query)){
+
+        $slide_image = displayImage($row['slide_image']);
+
+        $slides_active = <<<DELIMETER
+
+            <div class="item active">
+                <img style="height: 300px;" class="slide-image" src="../resources/{$slide_image}" alt="">
+            </div>
+
+        DELIMETER;
+
+        echo $slides_active;
+
+    }
 
 }
 
@@ -637,10 +654,12 @@ function getSlides(){
 
     while($row = fetchArray($query)){
 
+        $slide_image = displayImage($row['slide_image']);
+
         $slides = <<<DELIMETER
 
             <div class="item">
-                <img class="slide-image" src="http://placehold.it/800x300?text=HELLO" alt="">
+                <img style="height: 300px;" class="slide-image" src="../resources/{$slide_image}" alt="">
             </div>
 
         DELIMETER;
