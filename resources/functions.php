@@ -606,6 +606,48 @@ function getReports(){
 
 
 
+//============================= Slides Functions ===============================//
+
+function addSlides(){
+
+
+
+}
+
+
+function getCurrentSlides(){
+
+
+
+}
+
+
+function activeSlides(){
+
+
+
+}
+
+
+
+function getSlides(){
+
+
+
+}
+
+
+
+function getSlidesThumnails(){
+
+    
+
+}
+
+
+
+
+
 
 
 
