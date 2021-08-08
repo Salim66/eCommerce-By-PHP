@@ -79,6 +79,10 @@
                     if(isset($_GET['delete_report_id'])){
                         include(TEMPLATE_BACK . DS . 'delete_report.php');
                     }
+
+                    if(isset($_GET['slides'])){
+                        include(TEMPLATE_BACK . DS . 'slides.php');
+                    }
                 
                 ?>
 
