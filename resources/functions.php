@@ -634,9 +634,24 @@ function addSlides(){
 }
 
 
-function getCurrentSlides(){
+function getCurrentSlidesInAdmin(){
 
+    $query = query("SELECT * FROM slides ORDER BY slide_id DESC LIMIT 1");
+    confirm($query);
 
+    while($row = fetchArray($query)){
+
+        $slide_image = displayImage($row['slide_image']);
+
+        $current_slide = <<<DELIMETER
+
+            <img class="img-responsive" style="width: 800px; height: 250px;" src="../../resources/{$slide_image}" alt="Current Slide">
+
+        DELIMETER;
+
+        echo $current_slide;
+
+    }
 
 }
 
