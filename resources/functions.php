@@ -154,15 +154,18 @@ function getCategory(){
  * Create productCategory function
  */
 function getProductINCatPage($category_id){
-    $query = query("SELECT * FROM products WHERE product_category_id = " . escapeString($category_id) . " ");
+    $query = query("SELECT * FROM products WHERE product_category_id = " . escapeString($category_id) . " AND product_quantity >= 1 ");
     confirm($query);
 
     while($row = fetchArray($query)){
+
+        $product_image = displayImage($row['product_image']);
+
         $product = <<<DELIMETER
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="{$row['product_image']}" alt="">
+                    <img style="width: 320px; height: 200px;" src="../resources/{$product_image}" alt="">
                     <div class="caption">
                         <h3>{$row['product_title']}</h3>
                         <p>{$row['product_short_description']}</p>
@@ -184,7 +187,7 @@ function getProductINCatPage($category_id){
 //==================== Shop Page ====================//
 
 function getProductINShopPage(){
-    $query = query("SELECT * FROM products");
+    $query = query("SELECT * FROM products WHERE product_quantity >= 1 ");
     confirm($query);
 
     while($row = fetchArray($query)){
