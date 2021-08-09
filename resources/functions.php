@@ -97,6 +97,27 @@ function fetchArray($result){
 function getProducts(){
     $query = query("SELECT * FROM products WHERE product_quantity >= 1 ");
     confirm($query);
+    
+    $rows = mysqli_num_rows($query);
+
+    //pagtination 
+    if(isset($_GET['page'])){
+        $page = preg_replace('#[^0-9]#', '', $_GET['page']);
+    }else {
+        $page = 1;
+    }
+
+    $per_page = 6;
+
+    $last_page = ceil($page/$per_page);
+
+    if($page < 1){
+        $page = 1;
+    }elseif($page > $last_page) {
+        $page = $last_page;
+    }
+
+
 
     while($row = fetchArray($query)){
         
