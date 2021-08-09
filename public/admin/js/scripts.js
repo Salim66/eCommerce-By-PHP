@@ -1,11 +1,10 @@
 $(document).ready(function(){
 
-$('#demo').hover(
-  function () {
-    $(this).toggle();
+  $(".slide_contains").click(function(e){
 
- 
-});
+    return confirm("Are you sure you want to delete this item!");
+
+  });
 
 
 
