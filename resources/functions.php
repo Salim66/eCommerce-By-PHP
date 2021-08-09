@@ -721,6 +721,10 @@ function getSlidesThumnailsInAdmin(){
                <a href="index.php?delete_slide_id={$row['slide_id']}">
                     <img class="img-responsive slide_image" src="../../resources/{$slide_image}" alt="Current Slide">
                 </a>
+
+                <div class="caption">
+                    <p>{$row['slide_title']}</p>
+                </div>
             </div>
            
 
