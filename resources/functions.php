@@ -142,9 +142,18 @@ function getProducts(){
         $middle_numbers .= '<li class="page-item active"><a>'.$page.'</a></li>';
         $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add1.'">'.$add1.'</a></li>';
         $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add2.'">'.$add2.'</a></li>';
-        
+
+        // echo '<ul class="pagination">'.$middle_numbers.'</ul>';
+    }else if($page > 1 && $page < ($last_page - 1)){
+
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$sub1.'">'.$sub1.'</a></li>';
+        $middle_numbers .= '<li class="page-item active"><a>'.$page.'</a></li>';
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add1.'">'.$add1.'</a></li>';
+
         // echo '<ul class="pagination">'.$middle_numbers.'</ul>';
     }
+
+    $limit = 'LIMIT ' .($page-1) * $per_page.','.$per_page;
 
 
     while($row = fetchArray($query)){
