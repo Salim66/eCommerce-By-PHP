@@ -100,6 +100,11 @@ function getProducts(){
     
     $rows = mysqli_num_rows($query);
 
+
+
+
+
+
     //pagtination 
     if(isset($_GET['page'])){
         $page = preg_replace('#[^0-9]#', '', $_GET['page']);
@@ -154,6 +159,32 @@ function getProducts(){
     }
 
     $limit = 'LIMIT ' .($page-1) * $per_page.','.$per_page;
+
+    $query2 = query("SELECT * FROM products WHERE product_quantity >= 1  $limit ");
+    confirm($query2);
+
+    $output_pagination = "";
+
+    // if($last_page != 1){
+    //     echo "Page $page of $last_page";
+    // }
+
+    if($page != 1){
+        
+        $prev = $page - 1;
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$prev.'">Prev</a></li>';
+
+    }
+
+    $output_pagination .= $middle_numbers;
+
+    if($page != $last_page){
+        
+        $next = $page + 1;
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$next.'">Next</a></li>';
+
+    }
+
 
 
     while($row = fetchArray($query)){
