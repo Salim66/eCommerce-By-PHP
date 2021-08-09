@@ -109,7 +109,7 @@ function getProducts(){
 
     $per_page = 6;
 
-    $last_page = ceil($page/$per_page);
+    $last_page = ceil($rows/$per_page);
 
     if($page < 1){
         $page = 1;
@@ -117,6 +117,34 @@ function getProducts(){
         $page = $last_page;
     }
 
+    $middle_numbers = '';
+
+    $sub1 = $page - 1;
+    $sub2 = $page - 2;
+    $add1 = $page + 1;
+    $add2 = $page + 2;
+
+    if($page == 1){
+
+        $middle_numbers .= '<li class="page-item active"><a>'.$page.'</a></li>';
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add1.'">'.$add1.'</a></li>';
+
+        // echo '<ul class="pagination">'.$middle_numbers.'</ul>';
+    }else if($page == $last_page){
+
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$sub1.'">'.$sub1.'</a></li>';
+        $middle_numbers .= '<li class="page-item active"><a>'.$page.'</a></li>';
+
+    }else if($page > 2 && $page < ($last_page - 1)){
+
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$sub2.'">'.$sub2.'</a></li>';
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$sub1.'">'.$sub1.'</a></li>';
+        $middle_numbers .= '<li class="page-item active"><a>'.$page.'</a></li>';
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add1.'">'.$add1.'</a></li>';
+        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add2.'">'.$add2.'</a></li>';
+        
+        // echo '<ul class="pagination">'.$middle_numbers.'</ul>';
+    }
 
 
     while($row = fetchArray($query)){
