@@ -172,7 +172,7 @@ function getProducts(){
     if($page != 1){
         
         $prev = $page - 1;
-        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$prev.'">Prev</a></li>';
+        $output_pagination .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$prev.'">Back</a></li>';
 
     }
 
@@ -181,13 +181,13 @@ function getProducts(){
     if($page != $last_page){
         
         $next = $page + 1;
-        $middle_numbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$next.'">Next</a></li>';
+        $output_pagination .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$next.'">Next</a></li>';
 
     }
 
 
 
-    while($row = fetchArray($query)){
+    while($row = fetchArray($query2)){
         
         $product_image = displayImage($row['product_image']);
 
@@ -213,6 +213,8 @@ function getProducts(){
         echo $product;
 
     }
+
+    echo '<div class="text-center" style="display: block;"><ul class="pagination">'.$output_pagination.'</ul></div>';
 }
 
 
